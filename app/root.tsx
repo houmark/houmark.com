@@ -1,9 +1,15 @@
 import type { MetaFunction, LinksFunction } from '@remix-run/cloudflare';
+import type { LoaderFunction } from '@remix-run/cloudflare';
+import { useLoaderData } from '@remix-run/react';
 
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import styles from './tailwind.css';
 import backgroundImage from 'images/background.jpg';
+
+export const loader: LoaderFunction = async ({ context }) => {
+  return { ENV: context?.ENV ?? 'production' };
+};
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
@@ -14,6 +20,7 @@ export const meta: MetaFunction = () => ({
 });
 
 function Document({ children }: any) {
+  const data = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -28,6 +35,13 @@ function Document({ children }: any) {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        {data?.ENV === 'production' ? (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "69139ead33524371842653e66cff3c86"}'
+          ></script>
+        ) : null}
       </body>
     </html>
   );
