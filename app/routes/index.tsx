@@ -7,9 +7,11 @@ export default function Index() {
           New site underway!{' '}
           <a
             href="mailto:info@houmark.com"
-            className="underline underline-offset-4 hover:no-underline"
+            className="group transition-all duration-300 ease-in-out"
           >
-            Get in touch
+            <span className="bg-gradient-to-r from-white to-white bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_3px]">
+              Get in touch
+            </span>
           </a>
           .
         </p>
