@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .main-headline {
+    font-size: clamp(3.25rem, 2.159rem + 5.45vw, 6.25rem);
+  }
+}
