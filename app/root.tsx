@@ -8,7 +8,7 @@ import styles from './tailwind.css';
 import backgroundImage from 'images/background.jpg';
 
 export const loader: LoaderFunction = async ({ context }) => {
-  return { ENV: context?.ENV ?? 'production' };
+  return { ENV: context?.ENV ?? 'production', CF_BEACON_TOKEN: context?.CF_BEACON_TOKEN };
 };
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
@@ -35,11 +35,11 @@ function Document({ children }: any) {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        {data?.ENV === 'production' ? (
+        {data?.ENV === 'production' && data?.CF_BEACON_TOKEN ? (
           <script
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "69139ead33524371842653e66cff3c86"}'
+            data-cf-beacon={`{"token": "${data.CF_BEACON_TOKEN}"}`}
           ></script>
         ) : null}
       </body>
