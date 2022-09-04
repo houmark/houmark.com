@@ -5,10 +5,10 @@ export default function Index() {
     <div className="flex h-screen w-full flex-col items-center justify-center bg-black/60 text-white min-h-screen-ios h-screen-ios">
       <div>
         <motion.h1
+          className="main-headline m-4 sm:m-0"
           initial={{ filter: 'blur(20px)' }}
           animate={{ filter: 'blur(0px)' }}
           transition={{ delay: 0.5 }}
-          className="main-headline m-4 sm:m-0"
         >
           houmark.com
         </motion.h1>
