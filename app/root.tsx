@@ -6,10 +6,31 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 
 import styles from './tailwind.css';
 import backgroundImage from 'images/background.jpg';
+import backgroundImageWebp from 'images/background.webp';
 
-export const loader: LoaderFunction = async ({ context }) => {
-  return { ENV: context?.ENV ?? 'production', CF_BEACON_TOKEN: context?.CF_BEACON_TOKEN };
-};
+function getHeaders(requestOrHeaders: Request | Headers): Headers {
+  if (requestOrHeaders instanceof Request) {
+    return requestOrHeaders.headers;
+  }
+
+  return requestOrHeaders;
+}
+
+function webpSupport(requestOrHeaders: Request | Headers) {
+  const headers = getHeaders(requestOrHeaders);
+  const accept = headers.get('accept');
+  const userAgent = headers.get('user-agent');
+  return !!(
+    accept?.includes('image/webp') ||
+    (userAgent?.includes('Safari') && userAgent?.includes('Version/15'))
+  );
+}
+
+interface Environment {
+  ENV: string | null | undefined;
+  CF_BEACON_TOKEN: string | null | undefined;
+  WEBP: boolean;
+}
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
@@ -19,8 +40,17 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
 });
 
+export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
+  const isWebPSupported = webpSupport(request.headers);
+  return {
+    ENV: context.ENV as string | null | undefined,
+    CF_BEACON_TOKEN: context.CF_BEACON_TOKEN as string | null | undefined,
+    WEBP: isWebPSupported,
+  };
+};
+
 function Document({ children }: any) {
-  const data = useLoaderData();
+  const env = useLoaderData() as Environment;
   return (
     <html lang="en">
       <head>
@@ -29,17 +59,17 @@ function Document({ children }: any) {
       </head>
       <body
         className="bg-black bg-cover bg-fixed bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${backgroundImage}')` }}
+        style={{ backgroundImage: `url('${env.WEBP ? backgroundImageWebp : backgroundImage}')` }}
       >
         {children}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        {data?.ENV === 'production' && data?.CF_BEACON_TOKEN ? (
+        {env?.CF_BEACON_TOKEN ? (
           <script
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon={`{"token": "${data.CF_BEACON_TOKEN}"}`}
+            data-cf-beacon={`{"token": "${env.CF_BEACON_TOKEN}"}`}
           ></script>
         ) : null}
       </body>
