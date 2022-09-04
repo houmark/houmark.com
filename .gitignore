@@ -8,3 +8,4 @@ node_modules
 
 /app/tailwind.css
 /functions/_assets/*[.css,.jpg,.jpeg,.png,.webp,.gif]
+/.dev.vars
