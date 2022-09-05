@@ -59,7 +59,7 @@ function Document({ children }: any) {
         <Links />
       </head>
       <body
-        className="bg-black bg-cover bg-fixed bg-center bg-no-repeat"
+        className="bg-black bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${env.WEBP ? backgroundImageWebp : backgroundImage}')` }}
       >
         {children}
