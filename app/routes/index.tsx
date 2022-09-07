@@ -20,14 +20,12 @@ export default function Index() {
         >
           <p>New site underway!</p>
           <p className="mt-4">
+            →{' '}
             <a
               href="mailto:info@houmark.com"
-              className="group transition-[background] duration-300 ease-in-out"
+              className="bg-gradient-to-r from-white to-white bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-out hover:bg-[length:100%_3px]"
             >
-              →{' '}
-              <span className="bg-gradient-to-r from-white to-white bg-[length:0%_3px] bg-left-bottom bg-no-repeat transition-[background] duration-500 ease-out group-hover:bg-[length:100%_3px]">
-                Get in touch
-              </span>
+              Get in touch
             </a>
             !
           </p>
