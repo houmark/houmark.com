@@ -33,7 +33,15 @@ interface Environment {
   WEBP: boolean;
 }
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: styles },
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap',
+  },
+];
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',

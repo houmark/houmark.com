@@ -4,6 +4,9 @@ module.exports = {
   content: ['./app/**/*.{ts,tsx,jsx,js}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Signika Negative"', 'system-ui', 'sans-serif'],
+      },
       keyframes: {
         shake: {
           '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
