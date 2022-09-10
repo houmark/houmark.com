@@ -5,8 +5,8 @@ import { useLoaderData } from '@remix-run/react';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import styles from './tailwind.css';
-import backgroundImage from 'images/background.jpg';
-import backgroundImageWebp from 'images/background.webp';
+import backgroundImage from 'images/backgrounds/maximalfocus.jpg';
+import backgroundImageWebp from 'images/backgrounds/maximalfocus.webp';
 
 function getHeaders(requestOrHeaders: Request | Headers): Headers {
   if (requestOrHeaders instanceof Request) {
@@ -51,6 +51,7 @@ export const meta: MetaFunction = () => ({
 
 export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
   const isWebPSupported = webpSupport(request.headers);
+
   return {
     ENV: context.ENV as string | null | undefined,
     CF_BEACON_TOKEN: context.CF_BEACON_TOKEN as string | null | undefined,
@@ -67,7 +68,7 @@ function Document({ children }: any) {
         <Links />
       </head>
       <body
-        className="bg-black bg-cover bg-right bg-no-repeat"
+        className="bg-black bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${env.WEBP ? backgroundImageWebp : backgroundImage}')` }}
       >
         {children}
