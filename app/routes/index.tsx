@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-
 export default function Index() {
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center bg-black/60 text-white min-h-screen-ios h-screen-ios">
@@ -16,10 +15,10 @@ export default function Index() {
           initial={{ filter: 'blur(20px)', y: -130 }}
           animate={{ filter: 'blur(0px)', y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="m-4 mt-2 rounded-2xl bg-black/40 p-6 text-center text-3xl sm:m-0"
+          className="group m-4 mt-2 rounded-2xl bg-black/40 to-red-700 p-6 text-center text-3xl ring-white transition-[box-shadow,background-color] duration-300 hover:bg-black hover:ring-8 sm:m-0"
         >
           <p>New site underway!</p>
-          <p className="mt-4">
+          <p className="mt-4 transition-colors delay-300 duration-1000 group-hover:text-green-500">
             →{' '}
             <a
               href="mailto:info@houmark.com"
