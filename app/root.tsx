@@ -22,8 +22,7 @@ function webpSupport(requestOrHeaders: Request | Headers) {
   const userAgent = headers.get('user-agent');
   return !!(
     accept?.includes('image/webp') ||
-    (userAgent?.includes('Safari') &&
-      (userAgent?.includes('Version/15') || userAgent?.includes('Version/16')))
+    (userAgent?.includes('Safari') && userAgent?.includes('Version/1'))
   );
 }
 
