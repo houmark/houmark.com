@@ -5,7 +5,5 @@ node_modules
 /functions/\[\[path\]\].js.map
 /public/build
 .env
-
-/app/tailwind.css
 /functions/_assets/*[.css,.jpg,.jpeg,.png,.webp,.gif]
 /.dev.vars

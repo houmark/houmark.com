@@ -4,7 +4,7 @@ import { useLoaderData } from '@remix-run/react';
 
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
-import styles from './tailwind.css';
+import stylesheet from '~/tailwind.css';
 import backgroundImage from 'images/backgrounds/maximalfocus.jpg';
 import backgroundImageWebp from 'images/backgrounds/maximalfocus.webp';
 
@@ -33,7 +33,7 @@ interface Environment {
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: styles },
+  { rel: 'stylesheet', href: stylesheet },
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
   {
@@ -45,6 +45,8 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
   title: 'houmark.com',
+  description:
+    'High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
   viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
 });
 
