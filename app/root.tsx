@@ -1,4 +1,4 @@
-import type { MetaFunction, LinksFunction } from '@remix-run/cloudflare';
+import type { LinksFunction, HtmlMetaDescriptor } from '@remix-run/cloudflare';
 import type { LoaderFunction } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 
@@ -42,13 +42,16 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'houmark.com',
-  description:
-    'High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
-  viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
-});
+export function meta(): HtmlMetaDescriptor[] {
+  return [
+    { charset: 'utf-8' },
+    {
+      title:
+        'High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
+    },
+    { name: 'viewport', content: 'width=device-width,initial-scale=1,viewport-fit=cover' },
+  ];
+}
 
 export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
   const isWebPSupported = webpSupport(request.headers);
