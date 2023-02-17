@@ -47,6 +47,10 @@ export function meta(): HtmlMetaDescriptor[] {
     { charset: 'utf-8' },
     {
       title:
+        'houmark.com - High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
+    },
+    {
+      description:
         'High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
     },
     { name: 'viewport', content: 'width=device-width,initial-scale=1,viewport-fit=cover' },
