@@ -14,6 +14,7 @@ export default function handleRequest(
   responseHeaders.set('X-Frame-Options', 'SAMEORIGIN');
   responseHeaders.set('X-Content-Type-Options', 'nosniff');
   responseHeaders.set('Referrer-Policy', 'no-referrer');
+  responseHeaders.set('Permissions-Policy', 'camera=(), geolocation=(), microphone=()');
 
   return new Response('<!DOCTYPE html>' + markup, {
     status: responseStatusCode,
