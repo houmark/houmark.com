@@ -1,13 +1,21 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 export default function Index() {
+  const [isAnimating, setIsAnimating] = useState(false);
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center text-white min-h-screen-ios h-screen-ios">
+    <div
+      className={`flex h-screen w-full flex-col items-center justify-center text-white min-h-screen-ios h-screen-ios ${
+        isAnimating ? 'overflow-hidden' : 'overflow-auto'
+      }`}
+    >
       <div>
         <motion.h1
           className="main-headline m-4 text-black will-change-transform sm:m-0"
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ delay: 1.2, duration: 0.6 }}
+          onAnimationStart={() => setIsAnimating(true)}
+          onAnimationComplete={() => setIsAnimating(false)}
         >
           houmark.com
         </motion.h1>
