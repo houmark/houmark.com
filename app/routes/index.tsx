@@ -11,7 +11,7 @@ export default function Index() {
       <div>
         <motion.h1
           className="main-headline m-4 text-black will-change-transform sm:m-0"
-          initial={{ opacity: 0, filter: 'blur(20px)' }}
+          initial={{ opacity: 0.01, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ delay: 1.2, duration: 0.6 }}
           onAnimationStart={() => setIsAnimating(true)}
