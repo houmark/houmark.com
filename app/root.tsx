@@ -1,12 +1,9 @@
 import type { LinksFunction, HtmlMetaDescriptor } from '@remix-run/cloudflare';
 import type { LoaderFunction } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
-
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import stylesheet from '~/tailwind.css';
-import backgroundImage from 'images/backgrounds/maximalfocus.jpg';
-import backgroundImageWebp from 'images/backgrounds/maximalfocus.webp';
 
 function getHeaders(requestOrHeaders: Request | Headers): Headers {
   if (requestOrHeaders instanceof Request) {
@@ -75,10 +72,7 @@ function Document({ children }: any) {
         <Meta />
         <Links />
       </head>
-      <body
-        className="bg-black bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${env.WEBP ? backgroundImageWebp : backgroundImage}')` }}
-      >
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
