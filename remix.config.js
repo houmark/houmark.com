@@ -7,6 +7,7 @@ module.exports = {
   future: {
     unstable_tailwind: true,
     v2_meta: true,
+    v2_routeConvention: true,
     unstable_dev: {
       appServerPort: 3000,
       rebuildPollIntervalMs: 500,

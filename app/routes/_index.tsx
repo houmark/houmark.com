@@ -20,7 +20,7 @@ export default function Index() {
           houmark.com
         </motion.h1>
         <motion.div
-          initial={{ filter: 'blur(40px)', y: '100vh' }}
+          initial={{ filter: 'blur(40px)', y: '-100vh' }}
           animate={{ filter: 'blur(0px)', y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className="group m-4 mt-2 rounded-2xl bg-black/75 to-red-700 p-6 text-center text-3xl ring-4 ring-white transition-[box-shadow,background-color] duration-300 will-change-transform hover:bg-black hover:ring-8 sm:m-0"
