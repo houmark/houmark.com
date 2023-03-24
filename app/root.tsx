@@ -2,6 +2,7 @@ import type { LinksFunction, HtmlMetaDescriptor } from '@remix-run/cloudflare';
 import type { LoaderFunction } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { types } from 'node:util';
 
 import stylesheet from '~/tailwind.css';
 
@@ -57,6 +58,12 @@ export function meta(): HtmlMetaDescriptor[] {
 
 export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
   const isWebPSupported = webpSupport(request.headers);
+
+  console.log(types.isArrayBufferView(new Int8Array())); // true
+  console.log(types.isArrayBufferView(Buffer.from('hello world'))); // true
+  console.log(types.isArrayBufferView(new DataView(new ArrayBuffer(16)))); // true
+  console.log(types.isAsyncFunction(function foo() {})); // Returns false
+  console.log(types.isAsyncFunction(async function foo() {})); // Returns true
 
   return {
     ENV: context.ENV as string | null | undefined,
