@@ -11,15 +11,12 @@ module.exports = {
   server: './server.js',
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*'],
+  tailwind: true,
   future: {
-    unstable_tailwind: true,
     v2_errorBoundary: true,
     v2_meta: true,
     v2_routeConvention: true,
     v2_normalizeFormMethod: true,
-    unstable_dev: {
-      appServerPort: 3000,
-      rebuildPollIntervalMs: 500,
-    },
+    unstable_dev: true,
   },
 };
