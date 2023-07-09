@@ -1,7 +1,13 @@
-import type { LinksFunction, HtmlMetaDescriptor } from '@remix-run/cloudflare';
-import type { LoaderFunction } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import type { LinksFunction, HtmlMetaDescriptor, LoaderFunction } from '@remix-run/cloudflare';
+import {
+  useLoaderData,
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from '@remix-run/react';
 
 import stylesheet from '~/tailwind.css';
 
