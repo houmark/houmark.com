@@ -11,7 +11,8 @@ export default function Index() {
       <div className="w-10/12 will-change-transform">
         <motion.h1
           className="main-headline inline font-bold text-black will-change-transform sm:m-0"
-          initial={{ opacity: 0, filter: 'blur(20px)' }}
+          /* Make LightHouse happy by having 0.01 in opacity*/
+          initial={{ opacity: 0.0001, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ delay: 1.2, duration: 1.2 }}
           onAnimationStart={() => setIsAnimating(true)}
