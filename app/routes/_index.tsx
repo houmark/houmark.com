@@ -8,7 +8,7 @@ export default function Index() {
         isAnimating ? 'overflow-hidden' : 'overflow-auto'
       }`}
     >
-      <div className="w-10/12 will-change-transform">
+      <div className="w-11/12 will-change-transform sm:w-10/12">
         <motion.h1
           className="main-headline inline font-bold text-black will-change-transform sm:m-0"
           /* Make LightHouse happy by having 0.01 in opacity*/

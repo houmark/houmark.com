@@ -13,7 +13,7 @@ body {
 }
 @layer components {
   .main-headline {
-    font-size: clamp(3.25rem, 2.159rem + 5.45vw, 6.25rem);
+    font-size: clamp(2rem, 1.759rem + 5.45vw, 6.25rem);
   }
 }
 
