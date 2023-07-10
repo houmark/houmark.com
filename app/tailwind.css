@@ -28,3 +28,9 @@ body {
     radial-gradient(at 41% 2%, hsla(52, 92%, 65%, 1) 0px, transparent 50%),
     radial-gradient(at 72% 34%, hsla(82, 83%, 75%, 1) 0px, transparent 50%);
 }
+
+@font-face {
+  font-family: 'TASA Orbiter';
+  font-display: swap;
+  src: url('fonts/TASAOrbiterVF.woff2');
+}

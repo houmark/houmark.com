@@ -10,6 +10,7 @@ import {
 } from '@remix-run/react';
 
 import stylesheet from '~/tailwind.css';
+import font from 'fonts/TASAOrbiterVF.woff2';
 
 function getHeaders(requestOrHeaders: Request | Headers): Headers {
   if (requestOrHeaders instanceof Request) {
@@ -37,11 +38,11 @@ interface Environment {
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap',
+    rel: 'preload',
+    as: 'font',
+    crossOrigin: 'anonymous',
+    href: font,
   },
 ];
 

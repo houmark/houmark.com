@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Signika Negative"', 'system-ui', 'sans-serif'],
+        sans: ['"TASA Orbiter"', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         shake: {
