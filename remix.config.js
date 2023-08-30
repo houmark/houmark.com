@@ -9,7 +9,10 @@ module.exports = {
   serverDependenciesToBundle: 'all',
   serverMinify: true,
   server: './server.js',
-  devServerBroadcastDelay: 1000,
+  // devServerBroadcastDelay: 1000,
+  serverNodeBuiltinsPolyfill: {
+    modules: {},
+  },
   ignoredRouteFiles: ['**/.*'],
   tailwind: true,
   future: {
