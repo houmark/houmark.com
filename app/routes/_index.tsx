@@ -14,7 +14,7 @@ export default function Index() {
           /* Make LightHouse happy by having 0.01 in opacity*/
           initial={{ opacity: 0.0001, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ delay: 1.2, duration: 1.2 }}
+          transition={{ delay: 1.1, duration: 1.3 }}
           onAnimationStart={() => setIsAnimating(true)}
           onAnimationComplete={() => setIsAnimating(false)}
         >
@@ -24,7 +24,7 @@ export default function Index() {
           className="group mt-2 text-3xl text-black will-change-transform sm:m-0"
           initial={{ filter: 'blur(40px)', y: '100vh' }}
           animate={{ filter: 'blur(0px)', y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          transition={{ delay: 0.5, duration: 0.6, type: 'spring', stiffness: 40 }}
         >
           <p className="font-bold">Let's build your next platform, app or website, together!</p>
           <p className="mt-4 transition-colors delay-300 duration-1000">
