@@ -1,18 +1,17 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-  publicPath: '/build/',
   serverBuildPath: 'functions/[[path]].js',
-  serverConditions: ['worker'],
+  serverConditions: ['workerd', 'worker', 'browser'],
   serverMainFields: ['browser', 'module', 'main'],
   serverModuleFormat: 'esm',
   serverPlatform: 'neutral',
   serverDependenciesToBundle: 'all',
   serverMinify: true,
-  server: './server.js',
-  // devServerBroadcastDelay: 1000,
+  server: './server.ts',
   serverNodeBuiltinsPolyfill: {
     modules: {},
   },
   ignoredRouteFiles: ['**/.*'],
   tailwind: true,
+  // publicPath: '/build/',
 };

@@ -1,9 +1,13 @@
 node_modules
-
 /.cache
 /functions/\[\[path\]\].js
 /functions/\[\[path\]\].js.map
+/functions/metafile.*
+/functions/version.txt
+.dev.vars
+/build
 /public/build
-.env
-/functions/_assets/*[.css,.jpg,.jpeg,.png,.webp,.gif]
-/.dev.vars
+!/build/index.d.ts
+/.vscode
+/.wrangler
+.DS_Store

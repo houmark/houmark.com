@@ -1,4 +1,4 @@
-import type { LinksFunction, HtmlMetaDescriptor, LoaderFunction } from '@remix-run/cloudflare';
+import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/cloudflare';
 import {
   useLoaderData,
   Links,
@@ -50,7 +50,7 @@ export const links: LinksFunction = () => [
   { rel: 'manifest', href: '/site.webmanifest' },
 ];
 
-export function meta(): HtmlMetaDescriptor[] {
+export const meta: MetaFunction = () => {
   return [
     { charset: 'utf-8' },
     {
@@ -64,7 +64,7 @@ export function meta(): HtmlMetaDescriptor[] {
     },
     { name: 'viewport', content: 'width=device-width,initial-scale=1,viewport-fit=cover' },
   ];
-}
+};
 
 export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
   const isWebPSupported = webpSupport(request.headers);
