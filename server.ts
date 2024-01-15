@@ -5,6 +5,7 @@ import { logDevReady } from '@remix-run/cloudflare';
 
 interface Env {
   CF_BEACON_TOKEN: string | null | undefined;
+  WEBP: boolean;
 }
 
 type Context = EventContext<Env, string, unknown>;

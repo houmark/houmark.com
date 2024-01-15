@@ -1,4 +1,5 @@
-import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/cloudflare';
+import type { ReactNode } from 'react';
+import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
 import {
   useLoaderData,
   Links,
@@ -11,6 +12,8 @@ import {
 
 import stylesheet from '~/tailwind.css';
 import font from 'fonts/TASAOrbiterVF.woff2';
+
+// const buf = Buffer.from('hello world', 'utf8');
 
 function getHeaders(requestOrHeaders: Request | Headers): Headers {
   if (requestOrHeaders instanceof Request) {
@@ -30,12 +33,6 @@ function webpSupport(requestOrHeaders: Request | Headers) {
   );
 }
 
-interface Environment {
-  ENV: string | null | undefined;
-  CF_BEACON_TOKEN: string | null | undefined;
-  WEBP: boolean;
-}
-
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
   {
@@ -52,7 +49,6 @@ export const links: LinksFunction = () => [
 
 export const meta: MetaFunction = () => {
   return [
-    { charset: 'utf-8' },
     {
       title:
         'houmark.com - High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
@@ -62,25 +58,24 @@ export const meta: MetaFunction = () => {
       content:
         'High-quality, detail-oriented web developer delivering exceptional results. Technical expertise & passion for excellence combine to exceed client expectations.',
     },
-    { name: 'viewport', content: 'width=device-width,initial-scale=1,viewport-fit=cover' },
   ];
 };
 
-export const loader: LoaderFunction = async ({ request, context }): Promise<Environment> => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const isWebPSupported = webpSupport(request.headers);
-
   return {
-    ENV: context.ENV as string | null | undefined,
-    CF_BEACON_TOKEN: context.CF_BEACON_TOKEN as string | null | undefined,
+    CF_BEACON_TOKEN: context.CF_BEACON_TOKEN as string | undefined,
     WEBP: isWebPSupported,
   };
 };
 
-function Document({ children }: any) {
-  const env = useLoaderData() as Environment;
+function Document({ children }: { children: ReactNode }) {
+  const { CF_BEACON_TOKEN } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
@@ -89,11 +84,11 @@ function Document({ children }: any) {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        {env?.CF_BEACON_TOKEN ? (
+        {CF_BEACON_TOKEN ? (
           <script
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon={`{"token": "${env.CF_BEACON_TOKEN}"}`}
+            data-cf-beacon={`{"token": "${CF_BEACON_TOKEN}"}`}
           ></script>
         ) : null}
       </body>
@@ -111,7 +106,7 @@ export default function App() {
   );
 }
 
-function Layout({ children }: any) {
+function Layout({ children }: { children: ReactNode }) {
   return (
     /*
     It is possible to define the Default Layout here.
