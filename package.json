@@ -40,13 +40,5 @@
   },
   "engines": {
     "node": ">=16.13"
-  },
-  "overrides": {
-    "@remix-run/cloudflare-pages": {
-      "@cloudflare/workers-types": "$@cloudflare/workers-types"
-    },
-    "@remix-run/cloudflare": {
-      "@cloudflare/workers-types": "$@cloudflare/workers-types"
-    }
   }
 }
