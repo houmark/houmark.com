@@ -1,6 +1,5 @@
 import { createPagesFunctionHandler } from '@remix-run/cloudflare-pages';
 import * as build from '@remix-run/dev/server-build';
-import type { ServerBuild } from '@remix-run/cloudflare';
 import { logDevReady } from '@remix-run/cloudflare';
 
 interface Env {
@@ -15,11 +14,11 @@ declare module '@remix-run/server-runtime' {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  logDevReady(build as ServerBuild);
+  logDevReady(build);
 }
 
 export const onRequest = createPagesFunctionHandler({
-  build: build as ServerBuild,
+  build,
   mode: process.env.NODE_ENV,
   getLoadContext: (context: Context) => ({
     ...context.env,
