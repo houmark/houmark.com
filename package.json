@@ -1,10 +1,13 @@
 {
+  "name": "houmark.com-website",
   "private": true,
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --manual -c \"wrangler pages dev ./public --ip=* --port 3000 -b ENVIRONMENT=development\"",
     "start": "wrangler pages dev ./public",
+    "pages:deploy": "npm run build && wrangler pages deploy --project-name houmark-com --branch dev ./public",
     "typecheck": "tsc"
   },
   "dependencies": {
