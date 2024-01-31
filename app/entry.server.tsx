@@ -39,7 +39,10 @@ export default async function handleRequest(
   responseHeaders.set('X-Frame-Options', 'SAMEORIGIN');
   responseHeaders.set('X-Content-Type-Options', 'nosniff');
   responseHeaders.set('Referrer-Policy', 'no-referrer');
-  responseHeaders.set('Permissions-Policy', 'camera=(), geolocation=(), microphone=()');
+  responseHeaders.set(
+    'Permissions-Policy',
+    'camera=(), geolocation=(), microphone=()',
+  );
 
   return new Response(body, {
     headers: responseHeaders,

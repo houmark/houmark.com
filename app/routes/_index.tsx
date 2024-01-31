@@ -26,7 +26,9 @@ export default function Index() {
           animate={{ filter: 'blur(0px)', y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <p className="font-bold">Let's build your next platform, app or website, together!</p>
+          <p className="font-bold">
+            Let's build your next platform, app or website, together!
+          </p>
           <p className="mt-4 transition-colors delay-300 duration-1000">
             →{' '}
             <a
