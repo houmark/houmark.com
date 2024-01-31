@@ -1,7 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  mode: 'jit',
-  content: ['./app/**/*.{ts,tsx,jsx,js}'],
+import type { Config } from 'tailwindcss';
+
+export default {
+  content: ['./app/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -24,4 +24,4 @@ module.exports = {
     require('@rvxlab/tailwind-plugin-ios-full-height'),
     require('tailwindcss-animation-delay'),
   ],
-};
+} satisfies Config;

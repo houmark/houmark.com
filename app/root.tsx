@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
-import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
+import type {
+  LinksFunction,
+  LoaderFunctionArgs,
+  MetaFunction,
+} from '@remix-run/cloudflare';
 import {
   useLoaderData,
   Links,
@@ -10,7 +14,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
-import stylesheet from '~/tailwind.css';
+import '~/tailwind.css';
 import font from 'fonts/TASAOrbiterVF.woff2';
 
 // const buf = Buffer.from('hello world', 'utf8');
@@ -34,7 +38,6 @@ function webpSupport(requestOrHeaders: Request | Headers) {
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: stylesheet },
   {
     rel: 'preload',
     as: 'font',
@@ -42,8 +45,18 @@ export const links: LinksFunction = () => [
     href: font,
   },
   { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-  { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-  { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '32x32',
+    href: '/favicon-32x32.png',
+  },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '16x16',
+    href: '/favicon-16x16.png',
+  },
   { rel: 'manifest', href: '/site.webmanifest' },
 ];
 
