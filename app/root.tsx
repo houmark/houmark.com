@@ -15,7 +15,7 @@ import {
 } from '@remix-run/react';
 
 import '~/tailwind.css';
-import font from 'fonts/TASAOrbiterVF.woff2';
+import font from '/fonts/TASAOrbiterVF.woff2';
 
 // const buf = Buffer.from('hello world', 'utf8');
 
