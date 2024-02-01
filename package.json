@@ -4,7 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "remix vite:dev",
+    "dev": "remix vite:dev --host",
     "build": "remix vite:build",
     "deploy": "npm run build && wrangler pages deploy --project-name houmark-com --branch dev ./build/client",
     "deploy:production": "npm run build && wrangler pages deploy --project-name houmark-com ./build/client",
