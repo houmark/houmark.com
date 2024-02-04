@@ -7,7 +7,6 @@ import type {
 import {
   useLoaderData,
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -96,7 +95,6 @@ function Document({ children }: { children: ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
         {CF_BEACON_TOKEN ? (
           <script
             defer

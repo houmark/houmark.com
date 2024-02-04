@@ -11,9 +11,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^0.0.0-nightly-c372825-20240130",
-    "@remix-run/cloudflare-pages": "^0.0.0-nightly-c372825-20240130",
-    "@remix-run/react": "^0.0.0-nightly-c372825-20240130",
+    "@remix-run/cloudflare": "^2.6.0",
+    "@remix-run/cloudflare-pages": "^2.6.0",
+    "@remix-run/react": "^2.6.0",
     "cross-env": "^7.0.3",
     "framer-motion": "^11.0.3",
     "isbot": "^4.4.0",
@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240129.0",
-    "@remix-run/dev": "^0.0.0-nightly-c372825-20240130",
-    "@remix-run/eslint-config": "^2.5.1",
+    "@remix-run/dev": "^2.6.0",
+    "@remix-run/eslint-config": "^2.6.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
     "eslint": "^8.56.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
