@@ -6,11 +6,6 @@ import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  ssr: {
-    resolve: {
-      externalConditions: ['workerd', 'worker'],
-    },
-  },
   plugins: [
     tsconfigPaths(),
     // Note to self: remix must always be the last plugin to load
@@ -21,4 +16,9 @@ export default defineConfig({
       ],
     }),
   ],
+  ssr: {
+    resolve: {
+      externalConditions: ['workerd', 'worker'],
+    },
+  },
 });

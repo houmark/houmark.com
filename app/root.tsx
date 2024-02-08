@@ -26,7 +26,7 @@ function getHeaders(requestOrHeaders: Request | Headers): Headers {
   return requestOrHeaders;
 }
 
-function webpSupport(requestOrHeaders: Request | Headers) {
+function webpSupport(requestOrHeaders: Request | Headers): boolean {
   const headers = getHeaders(requestOrHeaders);
   const accept = headers.get('accept');
   const userAgent = headers.get('user-agent');
@@ -76,12 +76,12 @@ export const meta: MetaFunction = () => {
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const isWebPSupported = webpSupport(request.headers);
   return {
-    CF_BEACON_TOKEN: context.CF_BEACON_TOKEN as string | undefined,
+    CF_BEACON_TOKEN: context.env.CF_BEACON_TOKEN,
     WEBP: isWebPSupported,
   };
 };
 
-function Document({ children }: { children: ReactNode }) {
+function Layout({ children }: { children: ReactNode }) {
   const { CF_BEACON_TOKEN } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
@@ -93,8 +93,8 @@ function Document({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
-        <ScrollRestoration />
         <Scripts />
+        <ScrollRestoration />
         {CF_BEACON_TOKEN ? (
           <script
             defer
@@ -109,21 +109,8 @@ function Document({ children }: { children: ReactNode }) {
 
 export default function App() {
   return (
-    <Document>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </Document>
-  );
-}
-
-function Layout({ children }: { children: ReactNode }) {
-  return (
-    /*
-    It is possible to define the Default Layout here.
-    In that way, all the pages are going to be in the same format.
-    Examples of components to be added here: Toolbar/Navbar, Footer and etc...
-    */
-    <>{children}</>
+    <Layout>
+      <Outlet />
+    </Layout>
   );
 }
