@@ -22,9 +22,9 @@ export default function Index() {
         </motion.h1>
         <motion.div
           className="group mt-2 text-3xl text-black will-change-transform sm:m-0"
-          initial={{ filter: 'blur(40px)', y: '50vh' }}
-          animate={{ filter: 'blur(0px)', y: 0 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 70 }}
+          initial={{ y: '60vh' }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.1, type: 'spring', stiffness: 70 }}
         >
           <p className="font-bold">
             Let's build your next platform, app or website, together!
