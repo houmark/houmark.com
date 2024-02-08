@@ -6,7 +6,7 @@ import type { AppLoadContext as OriginalAppLoadContext } from '@remix-run/server
 declare module '@remix-run/server-runtime' {
   export interface AppLoadContext extends OriginalAppLoadContext {
     env: {
-      CF_BEACON_TOKEN: string | undefined;
+      CF_BEACON_TOKEN: string | null | undefined;
     };
   }
 }
