@@ -11,9 +11,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^2.6.0",
-    "@remix-run/cloudflare-pages": "^2.6.0",
-    "@remix-run/react": "^2.6.0",
+    "@remix-run/cloudflare": "^0.0.0-nightly-4111fd1-20240210",
+    "@remix-run/cloudflare-pages": "^0.0.0-nightly-4111fd1-20240210",
+    "@remix-run/react": "^0.0.0-nightly-4111fd1-20240210",
     "cross-env": "^7.0.3",
     "framer-motion": "^11.0.3",
     "isbot": "^4.4.0",
@@ -24,9 +24,9 @@
     "tiny-invariant": "^1.3.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240129.0",
-    "@remix-run/dev": "^2.6.0",
-    "@remix-run/eslint-config": "^2.6.0",
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "@remix-run/dev": "^0.0.0-nightly-4111fd1-20240210",
+    "@remix-run/eslint-config": "^0.0.0-nightly-4111fd1-20240210",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
@@ -35,9 +35,9 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-animation-delay": "^1.2.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.12",
+    "vite": "^5.1.1",
     "vite-tsconfig-paths": "^4.3.1",
-    "wrangler": "^3.27.0"
+    "wrangler": "^3.28.1"
   },
   "engines": {
     "node": ">=18.0.0"

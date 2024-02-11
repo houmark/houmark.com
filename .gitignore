@@ -1,8 +1,7 @@
-node_modules
-/.cache
 .dev.vars
+node_modules
 /build
-!/build/index.d.ts
+/.cache
 /.vscode
 /.wrangler
 .DS_Store

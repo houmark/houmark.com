@@ -1,10 +1,11 @@
+import type { LoaderFunctionArgs } from '@remix-run/node';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 export default function Index() {
   const [isAnimating, setIsAnimating] = useState(false);
   return (
     <div
-      className={`flex h-screen w-full flex-col items-center justify-center min-h-screen-ios h-screen-ios ${
+      className={`flex h-dvh w-full flex-col items-center justify-center ${
         isAnimating ? 'overflow-hidden' : 'overflow-auto'
       }`}
     >
@@ -15,18 +16,18 @@ export default function Index() {
           initial={{ opacity: 0.0001, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ delay: 0.5, duration: 1.3 }}
-          onAnimationStart={() => setIsAnimating(true)}
-          onAnimationComplete={() => setIsAnimating(false)}
         >
           houmark.com
         </motion.h1>
         <motion.div
-          className="group mt-2 text-3xl text-black will-change-transform sm:m-0"
+          onAnimationStart={() => setIsAnimating(true)}
+          onAnimationComplete={() => setIsAnimating(false)}
+          className="group mt-2 text-xl text-black will-change-transform sm:text-2xl lg:text-3xl"
           initial={{ y: '60vh' }}
           animate={{ y: 0 }}
           transition={{ delay: 0.1, type: 'spring', stiffness: 70 }}
         >
-          <p className="font-bold">
+          <p className="text-balance font-bold">
             Let's build your next platform, app or website, together!
           </p>
           <p className="mt-4 transition-colors delay-300 duration-1000">
