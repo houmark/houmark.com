@@ -4,19 +4,21 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "postinstall": "npm run typegen",
     "dev": "remix vite:dev --host",
     "build": "remix vite:build",
     "deploy": "npm run build && wrangler pages deploy --project-name houmark-com --branch dev ./build/client",
     "deploy:production": "npm run build && wrangler pages deploy --project-name houmark-com ./build/client",
+    "typegen": "wrangler types",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^0.0.0-nightly-4111fd1-20240210",
-    "@remix-run/cloudflare-pages": "^0.0.0-nightly-4111fd1-20240210",
-    "@remix-run/react": "^0.0.0-nightly-4111fd1-20240210",
+    "@remix-run/cloudflare": "2.7.2",
+    "@remix-run/cloudflare-pages": "2.7.2",
+    "@remix-run/react": "2.7.2",
     "cross-env": "^7.0.3",
-    "framer-motion": "^11.0.3",
-    "isbot": "^4.4.0",
+    "framer-motion": "^11.0.5",
+    "isbot": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "satori": "^0.10.13",
@@ -25,19 +27,19 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@remix-run/dev": "^0.0.0-nightly-4111fd1-20240210",
-    "@remix-run/eslint-config": "^0.0.0-nightly-4111fd1-20240210",
+    "@remix-run/dev": "2.7.2",
+    "@remix-run/eslint-config": "2.7.2",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
-    "@types/react": "^18.2.55",
+    "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.56.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animation-delay": "^1.2.0",
     "typescript": "^5.3.3",
-    "vite": "^5.1.1",
+    "vite": "^5.1.4",
     "vite-tsconfig-paths": "^4.3.1",
-    "wrangler": "^3.28.1"
+    "wrangler": "^3.28.4"
   },
   "engines": {
     "node": ">=18.0.0"

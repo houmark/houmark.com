@@ -63,7 +63,7 @@ export const meta: MetaFunction = () => {
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const isWebPSupported = webpSupport(request.headers);
   return {
-    CF_BEACON_TOKEN: context.env.CF_BEACON_TOKEN,
+    CF_BEACON_TOKEN: context.cloudflare.env.CF_BEACON_TOKEN,
     WEBP: isWebPSupported,
     context,
   };
