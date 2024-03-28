@@ -18,7 +18,7 @@
     "@remix-run/cloudflare-pages": "2.8.1",
     "@remix-run/react": "2.8.1",
     "cross-env": "^7.0.3",
-    "framer-motion": "^11.0.20",
+    "framer-motion": "^11.0.22",
     "isbot": "^5.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,17 +31,17 @@
     "@remix-run/dev": "2.8.1",
     "@remix-run/eslint-config": "2.8.1",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
-    "@types/react": "^18.2.67",
+    "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.22",
     "eslint": "^8.57.0",
-    "knip": "^5.2.2",
-    "prettier-plugin-tailwindcss": "^0.5.12",
-    "tailwindcss": "^3.4.1",
+    "knip": "^5.6.1",
+    "prettier-plugin-tailwindcss": "^0.5.13",
+    "tailwindcss": "^3.4.3",
     "tailwindcss-animation-delay": "^1.2.0",
     "typescript": "^5.4.3",
-    "vite": "^5.2.2",
+    "vite": "^5.2.6",
     "vite-tsconfig-paths": "^4.3.2",
-    "wrangler": "^3.36.0"
+    "wrangler": "^3.39.0"
   },
   "engines": {
     "node": ">=20.0.0"
